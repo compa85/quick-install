@@ -1,3 +1,25 @@
+"""
+===============================================================================
+ Quick Install
+===============================================================================
+
+ Author      : Davide Compagnoni
+ Version     : 1.0.0
+ Date        : 2025-05-10
+ Description : A Chocolatey-based tool to install essential Windows software in just a few clicks.
+
+ Features:
+   - Checks if Chocolatey is installed; installs it if missing
+   - Interactive menu to select which programs to install
+   - Automatically installs selected programs via Chocolatey
+
+ Resources:
+   - Chocolatey official website: https://chocolatey.org
+
+===============================================================================
+"""
+
+
 import os
 import sys
 import ctypes
@@ -32,10 +54,28 @@ def is_running_as_admin():
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
         return False
+    
+
+# funzione per stampare il banner
+def print_banner():
+    banner = r"""
+      ____  __  _____________ __  _____  _______________   __   __ 
+     / __ \/ / / /  _/ ___/ //_/ /  _/ |/ / __/_  __/ _ | / /  / / 
+    / /_/ / /_/ // // /__/ ,<   _/ //    /\ \  / / / __ |/ /__/ /__
+    \___\_\____/___/\___/_/|_| /___/_/|_/___/ /_/ /_/ |_/____/____/
+                                                                                                   
+    Version 1.0.0
+    by Davide Compagnoni
+    
+    
+    """
+    print("\033[34m" + banner + "\033[0m")
 
 
 # Funzione principale
 def main():
+    print_banner()
+    
     if not is_running_as_admin():
         print("⚠️ Il programma deve essere eseguito come amministratore.\n")
         input("Premi INVIO per uscire...")
@@ -64,8 +104,11 @@ def main():
             if software_package:
                 print(f"Installazione di {package}...")
                 os.system(f"choco install {software_package} -y")
+        print("Installazione completata.\n")
     else:
         print("Nessun programma selezionato.")
+    
+    input("Premi INVIO per uscire...")
         
         
 if __name__ == "__main__":

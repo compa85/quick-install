@@ -31,7 +31,7 @@
    python3 quick-install.py
    ```
 
-## 📝 Customization
+## ✏️ Customization
 
 You can easily customize the list of software to install by modifying the software_list inside the `quick-install.py` file:
 
@@ -64,7 +64,7 @@ pip install pyinstaller
 From the project folder, run:
 
 ```bash
-pyinstaller --onefile --icon icon.ico quick-install.py
+pyinstaller --onefile --uac-admin --icon icon.ico quick-install.py
 ```
 
 ### 3. Run as Administrator
