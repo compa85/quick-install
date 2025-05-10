@@ -14,6 +14,7 @@
    - Automatically installs selected programs via Chocolatey
 
  Resources:
+   - GitHub repository: https://github.com/compa85/quick-install.git
    - Chocolatey official website: https://chocolatey.org
 
 ===============================================================================
