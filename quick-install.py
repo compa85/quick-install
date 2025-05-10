@@ -69,7 +69,7 @@ def print_banner():
     
     
     """
-    print("\033[34m" + banner + "\033[0m")
+    print(banner)
 
 
 # Funzione principale
