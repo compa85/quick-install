@@ -4,7 +4,7 @@
 ===============================================================================
 
  Author      : Davide Compagnoni
- Version     : 1.0.0
+ Version     : 1.0.1
  Date        : 2025-05-10
  Description : A Chocolatey-based tool to install essential Windows software in just a few clicks.
 
@@ -29,13 +29,14 @@ import questionary
 
 # Definizione dei programmi disponibili per l'installazione
 software_list = [
-    {"name": "Google Chrome",   "package": "googlechrome"},
-    {"name": "Google Drive",    "package": "googledrive"},
-    {"name": "7-Zip",           "package": "7zip"},
-    {"name": "Adobe Reader",    "package": "adobereader"},
-    {"name": "LibreOffice",     "package": "libreoffice-fresh"},
-    {"name": "Java Runtime",    "package": "javaruntime"},
-    {"name": "FortiClient VPN", "package": "forticlientvpn"},
+    {"name": "Google Chrome",               "package": "googlechrome"},
+    {"name": "Google Drive",                "package": "googledrive"},
+    {"name": "7-Zip",                       "package": "7zip"},
+    {"name": "Adobe Reader",                "package": "adobereader"},
+    {"name": "LibreOffice",                 "package": "libreoffice-fresh"},
+    {"name": "Java Runtime",                "package": "javaruntime"},
+    {"name": "TeamViewer QuickSupport",     "package": "teamviewer-qs"},
+    {"name": "FortiClient VPN",             "package": "forticlientvpn"},
 ]
 
 
@@ -65,7 +66,7 @@ def print_banner():
     / /_/ / /_/ // // /__/ ,<   _/ //    /\ \  / / / __ |/ /__/ /__
     \___\_\____/___/\___/_/|_| /___/_/|_/___/ /_/ /_/ |_/____/____/
                                                                                                    
-    Version 1.0.0
+    Version 1.0.1
     by Davide Compagnoni
     
     
