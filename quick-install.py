@@ -4,7 +4,7 @@
 ===============================================================================
 
  Author      : Davide Compagnoni
- Version     : 1.0.1
+ Version     : 1.0.2
  Date        : 2025-05-10
  Description : A Chocolatey-based tool to install essential Windows software in just a few clicks.
 
@@ -25,6 +25,7 @@ import os
 import sys
 import ctypes
 import questionary
+import win32com.client
 
 
 # Definizione dei programmi disponibili per l'installazione
@@ -66,7 +67,7 @@ def print_banner():
     / /_/ / /_/ // // /__/ ,<   _/ //    /\ \  / / / __ |/ /__/ /__
     \___\_\____/___/\___/_/|_| /___/_/|_/___/ /_/ /_/ |_/____/____/
                                                                                                    
-    Version 1.0.1
+    Version 1.0.2
     by Davide Compagnoni
     
     
@@ -106,6 +107,15 @@ def main():
             if software_package:
                 print(f"Installazione di {package}...")
                 os.system(f"choco install {software_package} -y")
+                if software_package == "teamviewer-qs":
+                    target = r"C:\ProgramData\chocolatey\lib\teamviewer-qs\tools\TeamViewerQS.exe"
+                    shortcut_path = os.path.join(os.environ["PUBLIC"], "Desktop", "TeamViewerQS.lnk")
+                    shell = win32com.client.Dispatch("WScript.Shell")
+                    shortcut = shell.CreateShortcut(shortcut_path)
+                    shortcut.TargetPath = target
+                    shortcut.WorkingDirectory = os.path.dirname(target)
+                    shortcut.IconLocation = target
+                    shortcut.Save()
         print("Installazione completata.\n")
     else:
         print("Nessun programma selezionato.")
